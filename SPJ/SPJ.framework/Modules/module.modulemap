@@ -1,0 +1,11 @@
+framework module SPJ {
+  umbrella header "SPJ.h"
+
+  export *
+  module * { export * }
+}
+
+module SPJ.Swift {
+    header "SPJ-Swift.h"
+    requires objc
+}

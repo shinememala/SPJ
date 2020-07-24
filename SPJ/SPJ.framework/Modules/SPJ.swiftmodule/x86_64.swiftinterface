@@ -1,0 +1,318 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name SPJ
+import Foundation
+@_exported import SPJ
+import Swift
+import UIKit
+extension UIView {
+  public func removeAllSubviews()
+}
+extension String {
+  public var toBool: Swift.Bool {
+    get
+  }
+  public var toInt: Swift.Int? {
+    get
+  }
+  public var toInt64: Swift.Int64? {
+    get
+  }
+  public var toFloat: Swift.Float? {
+    get
+  }
+  public var toDouble: Swift.Double? {
+    get
+  }
+  public var toDecimal: Foundation.Decimal? {
+    get
+  }
+  public var toNSNumber: Foundation.NSNumber {
+    get
+  }
+  public var toJSON: [Swift.String : Any] {
+    get
+  }
+  public var toBase64: Swift.String {
+    get
+  }
+  public var toBase64Decoded: Swift.String {
+    get
+  }
+  public var toUTF8: Swift.String {
+    get
+  }
+  public var to971Format: Swift.String {
+    get
+  }
+  public var toEIDFormat: Swift.String {
+    get
+  }
+  public var toCurrencyFormat: Swift.String {
+    get
+  }
+  public var isValidEmail: Swift.Bool {
+    get
+  }
+  public var isValidPassword: Swift.Bool {
+    get
+  }
+  public var isValidUAEMobile: Swift.Bool {
+    get
+  }
+  public var isBlank: Swift.Bool {
+    get
+  }
+  public var isContainsEmoji: Swift.Bool {
+    get
+  }
+  public var isContainsNumberOnly: Swift.Bool {
+    get
+  }
+  public var isWhiteSpaceOnly: Swift.Bool {
+    get
+  }
+  public var isValidPhoneNumber: Swift.Bool {
+    get
+  }
+  public var capFirst: Swift.String {
+    get
+  }
+  public var trimWhiteSpaces: Swift.String {
+    get
+  }
+}
+extension String {
+  public func replace(_ from: Swift.String, to: Swift.String) -> Swift.String
+  public func capitaliseFirstLetter() -> Swift.String
+  public func contains(text: Swift.String) -> Swift.Bool
+  public func randomString(length: Swift.Int) -> Swift.String
+  public func convertToCurrencyFormat() -> Swift.String
+}
+extension String {
+  public func height(withWidth width: CoreGraphics.CGFloat, font: UIKit.UIFont) -> CoreGraphics.CGFloat
+  public func width(withWidth width: CoreGraphics.CGFloat, font: UIKit.UIFont) -> CoreGraphics.CGFloat
+}
+extension String {
+  public func timeIntervalToString(format: Swift.String) -> Swift.String
+  public func toDateFormat(from: Swift.String, to: Swift.String) -> Swift.String
+  public func toDate(format: Swift.String) -> Foundation.Date?
+  public func getTimeinterval(format: Swift.String) -> Swift.String
+}
+extension Int {
+  public var toString: Swift.String {
+    get
+  }
+  public var toCGFLoat: CoreGraphics.CGFloat {
+    get
+  }
+  public var toFloat: Swift.Float {
+    get
+  }
+  public var toDouble: Swift.Double {
+    get
+  }
+  public var half: Swift.Int {
+    get
+  }
+  public var square: Swift.Int {
+    get
+  }
+  public var cube: Swift.Int {
+    get
+  }
+  public var opposite: Swift.Int {
+    get
+  }
+  public var absolute: Swift.Int {
+    get
+  }
+}
+extension Int64 {
+  public var toString: Swift.String {
+    get
+  }
+  public var toFloat: Swift.Float {
+    get
+  }
+  public var toDouble: Swift.Double {
+    get
+  }
+  public var toInt: Swift.Int {
+    get
+  }
+}
+extension Float {
+  public var toString: Swift.String {
+    get
+  }
+  public var toCGFloat: CoreGraphics.CGFloat {
+    get
+  }
+  public var toInt: Swift.Int {
+    get
+  }
+  public var toRoundedInt: Swift.Int {
+    get
+  }
+  public var toDouble: Swift.Double {
+    get
+  }
+  public var half: Swift.Float {
+    get
+  }
+  public var opposite: Swift.Float {
+    get
+  }
+  public var absolute: Swift.Float {
+    get
+  }
+}
+extension Double {
+  public var toString: Swift.String {
+    get
+  }
+  public var toCFfloat: CoreGraphics.CGFloat {
+    get
+  }
+  public var toInt: Swift.Int {
+    get
+  }
+  public var toFloat: Swift.Float {
+    get
+  }
+  public var half: Swift.Double {
+    get
+  }
+  public var opposite: Swift.Double {
+    get
+  }
+  public var absolute: Swift.Double {
+    get
+  }
+  public func round(to places: Swift.Int) -> Swift.Double
+}
+extension CGFloat {
+  public func random() -> CoreGraphics.CGFloat
+  public var toString: Swift.String {
+    get
+  }
+  public var toInt: Swift.Int {
+    get
+  }
+  public var toFloat: Swift.Float {
+    get
+  }
+  public var toDouble: Swift.Double {
+    get
+  }
+  public var half: CoreGraphics.CGFloat {
+    get
+  }
+  public var square: CoreGraphics.CGFloat {
+    get
+  }
+  public var cube: CoreGraphics.CGFloat {
+    get
+  }
+  public var opposite: CoreGraphics.CGFloat {
+    get
+  }
+  public var absolute: CoreGraphics.CGFloat {
+    get
+  }
+}
+extension Bool {
+  public var int: Swift.Int {
+    get
+  }
+  public var string: Swift.String {
+    get
+  }
+  public var boolString: Swift.String {
+    get
+  }
+  public var yes: Swift.Bool {
+    get
+  }
+  public var positive: Swift.Bool {
+    get
+  }
+  public var no: Swift.Bool {
+    get
+  }
+  public var negative: Swift.Bool {
+    get
+  }
+  public var opposite: Swift.Bool {
+    get
+  }
+  public func toInt() -> Swift.Int
+  public func toString() -> Swift.String
+  public func toBoolString() -> Swift.String
+}
+extension UICollectionView {
+  public func reload(status: @escaping SPJ.BoolBlock)
+}
+public struct SPJBundle {
+  public static var displayName: Swift.String
+  public static var releaseVersionNumber: Swift.String
+  public static var buildVersionNumber: Swift.String
+}
+extension UIColor {
+  public convenience init?(hex: Swift.String)
+  public func toHexString() -> Swift.String
+  public func randomColor() -> UIKit.UIColor
+}
+public typealias ArrayBlock = ([Foundation.NSDictionary]?) -> Swift.Void
+public typealias DictBlock = (Foundation.NSDictionary?) -> Swift.Void
+public typealias ErrorBlock = (Foundation.NSError?) -> Swift.Void
+public typealias BoolBlock = (Swift.Bool?) -> Swift.Void
+public typealias StringBlock = (Swift.String?) -> Swift.Void
+public typealias SuccessBlock = () -> Swift.Void
+public typealias ErrorBlockWithId = (Swift.String?, Swift.Int) -> Swift.Void
+public typealias IntBlock = (Swift.Int) -> Swift.Void
+extension UIViewController {
+  @objc dynamic public func hideKeyboard()
+  @objc dynamic public func setBackButton()
+  @objc dynamic public func setCloseButton()
+  @objc dynamic public func backClick()
+}
+extension Date {
+  public func stringWithFormat(format: Swift.String) -> Swift.String
+  public func addDays(days: Swift.Int) -> Foundation.Date
+  public func subtractDays(days: Swift.Int) -> Foundation.Date
+  public func addYears(year: Swift.Int) -> Foundation.Date
+  public func subtractYears(year: Swift.Int) -> Foundation.Date
+  public func age() -> Swift.String
+  public func startOfMonth() -> Foundation.Date
+  public func endOfMonth() -> Foundation.Date
+}
+extension UITableView {
+  public func reload(status: @escaping SPJ.BoolBlock)
+}
+extension NSDictionary {
+  public func boolValue(_ key: Swift.String) -> Swift.Bool
+  public func stringValue(_ key: Swift.String) -> Swift.String
+  public func floatValue(_ key: Swift.String) -> Swift.Float
+  public func int64Value(_ key: Swift.String) -> Swift.Int64
+  public func intValue(_ key: Swift.String) -> Swift.Int
+  public func dictArray(_ key: Swift.String) -> [Foundation.NSDictionary]
+}
+extension UIDevice {
+  public var isSimulator: Swift.Bool {
+    get
+  }
+  public var isiPad: Swift.Bool {
+    get
+  }
+}
+public struct SPJDevice {
+  public static var isSimulator: Swift.Bool
+  public static var isiPad: Swift.Bool
+  public static var version: Swift.String
+  public static var model: Swift.String
+  public static var os: Swift.String
+  public static var width: CoreGraphics.CGFloat
+  public static var height: CoreGraphics.CGFloat
+}
