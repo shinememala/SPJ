@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0C69669B24CAE2C600C1CEA3 /* SPJ-Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0C69669E24CAE2C600C1CEA3 /* Build configuration list for PBXAggregateTarget "SPJ-Universal" */;
+			buildPhases = (
+				0C69669F24CAE2DA00C1CEA3 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "SPJ-Universal";
+			productName = "SPJ-Universal";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0C3433B7249CAA1500FEF3F7 /* SPJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C3433B5249CAA1500FEF3F7 /* SPJ.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C3433CA249CAA5800FEF3F7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3433C5249CAA5800FEF3F7 /* Constants.swift */; };
@@ -167,6 +181,9 @@
 						CreatedOnToolsVersion = 11.5;
 						LastSwiftMigration = 1150;
 					};
+					0C69669B24CAE2C600C1CEA3 = {
+						CreatedOnToolsVersion = 11.6;
+					};
 				};
 			};
 			buildConfigurationList = 0C3433AC249CAA1500FEF3F7 /* Build configuration list for PBXProject "SPJ" */;
@@ -183,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				0C3433B1249CAA1500FEF3F7 /* SPJ */,
+				0C69669B24CAE2C600C1CEA3 /* SPJ-Universal */,
 			);
 		};
 /* End PBXProject section */
@@ -199,6 +217,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0C69669F24CAE2DA00C1CEA3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "####################\n# Optional Value\n####################\nREVEAL_ARCHIVE_IN_FINDER=true\n\n####################\n# Required Values\n####################\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n######################\n# Build Frameworks\n######################\nxcodebuild -target ${PROJECT_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} clean build BITCODE_GENERATION_MODE=bitcode CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\nxcodebuild -target ${PROJECT_NAME} -sdk iphoneos -configuration ${CONFIGURATION} clean build BITCODE_GENERATION_MODE=bitcode CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n######################\n# Create directory for universal\n######################\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${FRAMEWORK}\"\n######################\n# Copy files Framework\n######################\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n######################\n# Printing Paths for your referance\n######################\necho SIMULATOR_LIBRARY_PATH\necho \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\necho DEVICE_LIBRARY_PATH\necho \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\necho UNIVERSAL_LIBRARY_DIR\necho \"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n######################\n# Make an universal binary\n######################\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n######################\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\n######################\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\nif [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n######################\n# On Release, copy the result to release directory\n######################\nOUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\ncp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nopen \"${OUTPUT_DIR}/\"\nfi\n";
+		};
 		0CCE98D624A707EC00C6E430 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -421,6 +456,24 @@
 			};
 			name = Release;
 		};
+		0C69669C24CAE2C600C1CEA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPUURCQTYW;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0C69669D24CAE2C600C1CEA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PPUURCQTYW;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -438,6 +491,15 @@
 			buildConfigurations = (
 				0C3433BB249CAA1500FEF3F7 /* Debug */,
 				0C3433BC249CAA1500FEF3F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C69669E24CAE2C600C1CEA3 /* Build configuration list for PBXAggregateTarget "SPJ-Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C69669C24CAE2C600C1CEA3 /* Debug */,
+				0C69669D24CAE2C600C1CEA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
