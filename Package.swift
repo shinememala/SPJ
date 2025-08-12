@@ -3,23 +3,30 @@
 
 import PackageDescription
 
+// swift-tools-version: 6.1
+// swift-tools-version: 6.1
+import PackageDescription
 
 let package = Package(
     name: "SPJ",
     platforms: [
-        .iOS(.v14) // set your minimums
+        .iOS(.v13) // adjust as needed
     ],
     products: [
-        .library(name: "SPJ", targets: ["SPJ"])
+        .library(
+            name: "SPJ",
+            targets: ["SPJ"]
+        ),
     ],
     targets: [
-        // Your source target (optional if you also have code)
+        // Wrapper target that your clients will import (`import SPJ`)
+        // It depends on the binary below.
         .target(
             name: "SPJ",
             dependencies: ["SPJBinary"]
         ),
 
-        // Binary target pointing to the xcframework in the repo
+        // Binary target pointing to the xcframework inside the repo
         .binaryTarget(
             name: "SPJBinary",
             path: "Binaries/SPJ.xcframework"
@@ -28,6 +35,6 @@ let package = Package(
         .testTarget(
             name: "SPJTests",
             dependencies: ["SPJ"]
-        )
+        ),
     ]
 )
