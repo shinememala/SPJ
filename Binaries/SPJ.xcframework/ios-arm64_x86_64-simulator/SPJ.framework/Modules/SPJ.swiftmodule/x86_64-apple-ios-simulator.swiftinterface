@@ -1,0 +1,117 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target x86_64-apple-ios17.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name SPJ
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+import Foundation
+@_exported import SPJ
+import Security
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class SPJKeyChain {
+  public static let shared: SPJ.SPJKeyChain
+  public static func saveString(_ string: Swift.String, forKey key: Swift.String) -> Swift.Bool
+  public static func loadString(forKey key: Swift.String) -> Swift.String?
+  public static func deleteString(forKey key: Swift.String) -> Swift.Bool
+  public static func saveBool(_ bool: Swift.Bool, forKey key: Swift.String) -> Swift.Bool
+  public static func loadBool(forKey key: Swift.String) -> Swift.Bool?
+  public static func deleteBool(forKey key: Swift.String) -> Swift.Bool
+  public static func save<T>(_ object: T, forKey key: Swift.String) -> Swift.Bool where T : Swift.Encodable
+  public static func load<T>(_ type: T.Type, forKey key: Swift.String) -> T? where T : Swift.Decodable
+  public static func delete(forKey key: Swift.String) -> Swift.Bool
+  public func saveString(forUserID userID: Swift.String, key: Swift.String, value: Swift.String, description: Swift.String? = "")
+  public func getStringForUser(forUserID userID: Swift.String, key: Swift.String) -> Swift.String?
+  public func deleteData(forUserID userID: Swift.String)
+  public func deleteData(forUserID userID: Swift.String, key: Swift.String)
+  @objc deinit
+}
+public let SPJ: SPJ.SPJFramework
+@_hasMissingDesignatedInitializers public class SPJFramework {
+  public static let `default`: SPJ.SPJFramework
+  @objc deinit
+}
+extension SPJ.SPJFramework {
+  public func getSRCLocation() -> Swift.String
+  public func randomString(length: Swift.Int) -> Swift.String
+}
+extension Swift.String {
+  public var toBool: Swift.Bool {
+    get
+  }
+  public var toInt: Swift.Int? {
+    get
+  }
+  public var toInt64: Swift.Int64? {
+    get
+  }
+  public var toFloat: Swift.Float? {
+    get
+  }
+  public var toDouble: Swift.Double? {
+    get
+  }
+  public var toDecimal: Foundation.Decimal? {
+    get
+  }
+  public var toNSNumber: Foundation.NSNumber {
+    get
+  }
+  public var toJSON: [Swift.String : Any] {
+    get
+  }
+  public var toBase64: Swift.String {
+    get
+  }
+  public var toBase64Decoded: Swift.String {
+    get
+  }
+  public var toUTF8: Swift.String {
+    get
+  }
+  public var to971Format: Swift.String {
+    get
+  }
+  public var toEIDFormat: Swift.String {
+    get
+  }
+  public var toCurrencyFormat: Swift.String {
+    get
+  }
+  public var isValidEmail: Swift.Bool {
+    get
+  }
+  public var isValidPassword: Swift.Bool {
+    get
+  }
+  public var isValidUAEMobile: Swift.Bool {
+    get
+  }
+  public var isBlank: Swift.Bool {
+    get
+  }
+  public var isContainsEmoji: Swift.Bool {
+    get
+  }
+  public var isContainsNumberOnly: Swift.Bool {
+    get
+  }
+  public var isWhiteSpaceOnly: Swift.Bool {
+    get
+  }
+  public var isValidPhoneNumber: Swift.Bool {
+    get
+  }
+  public func timeIntervalToString(format: Swift.String, timeZone: Foundation.TimeZone = .current, locale: Foundation.Locale = .current) -> Swift.String
+  public func toDateFormat(from: Swift.String, to: Swift.String, timeZone: Foundation.TimeZone = .current, locale: Foundation.Locale = .current) -> Swift.String
+  public func toDate(format: Swift.String, timeZone: Foundation.TimeZone = .current, locale: Foundation.Locale = .current) -> Foundation.Date?
+  public func getTimeinterval(format: Swift.String, timeZone: Foundation.TimeZone = .current, locale: Foundation.Locale = .current) -> Swift.String
+  public var capFirst: Swift.String {
+    get
+  }
+  public var trimWhiteSpaces: Swift.String {
+    get
+  }
+  public func replacing(_ from: Swift.String, with to: Swift.String) -> Swift.String
+  public func contains(text: Swift.String) -> Swift.Bool
+}

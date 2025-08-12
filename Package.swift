@@ -3,22 +3,31 @@
 
 import PackageDescription
 
+
 let package = Package(
     name: "SPJ",
+    platforms: [
+        .iOS(.v14) // set your minimums
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "SPJ",
-            targets: ["SPJ"]),
+        .library(name: "SPJ", targets: ["SPJ"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
+        // Your source target (optional if you also have code)
         .target(
-            name: "SPJ"),
+            name: "SPJ",
+            dependencies: ["SPJBinary"]
+        ),
+
+        // Binary target pointing to the xcframework in the repo
+        .binaryTarget(
+            name: "SPJBinary",
+            path: "Binaries/SPJ.xcframework"
+        ),
+
         .testTarget(
             name: "SPJTests",
             dependencies: ["SPJ"]
-        ),
+        )
     ]
 )

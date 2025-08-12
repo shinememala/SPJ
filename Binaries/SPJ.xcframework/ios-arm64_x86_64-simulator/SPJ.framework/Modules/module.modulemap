@@ -1,0 +1,6 @@
+framework module SPJ {
+  umbrella header "SPJ.h"
+  export *
+
+  module * { export * }
+}
